@@ -1,7 +1,10 @@
 package com.axel.cortes.bancarios.Corte.Tarjeta.Credito.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +22,9 @@ public class Compra {
     private String nombre;
     @Column(nullable = false)
     private Double costo;
+    @Column(name = "fechaCompra", nullable = false)
+    @JsonFormat
+    private Date fechaCompra;
     @ManyToOne()
     @JoinColumn(name = "idPersona")
     private Persona persona;
